@@ -1,8 +1,13 @@
 const express=require('express');
 const app=express();
 const port=8000;
+const db=require('./config/mongoose');
 const expressEjsLayouts=require('express-ejs-layouts');
+const cookie_parser= require('cookie-parser');
 
+
+app.use(express.urlencoded()); // Used to handle post requests, it puts form data in req.body
+app.use(cookie_parser());
 app.use(express.static('./assets'));
 
 //layout.ejs file will be accessed here.
