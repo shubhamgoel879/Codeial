@@ -1,6 +1,6 @@
 Codeial
 
-    Developing various features of facebook.
+    Developing various features of Social Media Website.
 
 
 *Under Development*
