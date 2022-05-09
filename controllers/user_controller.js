@@ -1,6 +1,6 @@
 const User = require('../models/user');
 module.exports.profile=function(req,res){
-    res.render('user_profile',{
+    return res.render('user_profile',{
         title: 'User Profile'
     });
 }
@@ -8,6 +8,9 @@ module.exports.profile=function(req,res){
 
 //render signup page.
 module.exports.signup=function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/');    // Go to Home page.
+    }
     return res.render('user_sign_up',{
         title:'Sign Up'
     });
@@ -16,12 +19,15 @@ module.exports.signup=function(req,res){
 
 //render signin page
 module.exports.signin=function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/');    // Go to Home page.
+    }
     return res.render('user_sign_in',{
         title:'Sign In'
     });
 }
 
-// Used for signing up a user.
+// Used for sign up a user.
 module.exports.create=function(req,res){
     if(req.body.password != req.body.confirm_password){
         return res.redirect('back');
@@ -50,5 +56,12 @@ module.exports.create=function(req,res){
 
 // Used for signing in a user
 module.exports.createSession=function(req,res){
-    //To do
+    return res.redirect('/');
+}
+
+
+
+module.exports.destroySession=function(req,res){
+    req.logout();   // logout is built in function provided by PassportJS to req
+    return res.redirect('/');
 }

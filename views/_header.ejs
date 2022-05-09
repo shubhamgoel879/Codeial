@@ -4,4 +4,13 @@
  -->
 <header>
     Page Header
+    <ul>
+        <% if(locals.user){ %>       <!--Accessing a property not present in object will show no error, here user is property of locals-->
+            <li><a href="/user/profile"><%= locals.user.name%></a></li>
+            <li><a href="/user/sign-out">Sign-out</a></li>
+        <% }else{ %>
+            <li><a href="/user/sign-in">Sign-in</a></li>
+            <li><a href="/user/sign-up">Sign-up</a></li>
+        <% } %>
+    </ul>
 </header>

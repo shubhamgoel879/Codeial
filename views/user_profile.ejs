@@ -2,4 +2,8 @@
 <h1>
     User Profile
 </h1>
+<!-- Here user is accessible because we have used app.use(passport.setAuthenticatedUser) in index.js  which is setting 
+the user's data (if user is authenticated) in res.locals.user -->
+<p><%=user.name%></p>
+<p><%=user.email%></p>
     
