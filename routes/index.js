@@ -6,5 +6,5 @@ router.get('/',homeController.home);
 router.use('/user',require('./user'));
 //Any further routes can be accessed from here
 
-console.log('Inside routes index.');
+router.use('/post',require('./post'));
 module.exports=router;  // module is used for get and post requests
