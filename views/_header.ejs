@@ -3,14 +3,16 @@
     2. Provides us code reusebility.
  -->
 <header>
-    Page Header
-    <ul>
-        <% if(locals.user){ %>       <!--Accessing a property not present in object will show no error, here user is property of locals-->
-            <li><a href="/user/profile"><%= locals.user.name%></a></li>
-            <li><a href="/user/sign-out">Sign-out</a></li>
-        <% }else{ %>
-            <li><a href="/user/sign-in">Sign-in</a></li>
-            <li><a href="/user/sign-up">Sign-up</a></li>
-        <% } %>
-    </ul>
+    <div id="container">
+        <a href="/" id="app-name">Codeial</a>
+        <div id="inner-container">
+            <% if(locals.user){ %>       <!--Accessing a property not present in object will show no error, here user is property of locals-->
+                <p><a href="/user/profile"><%= locals.user.name%></a></p>
+                <p><a href="/user/sign-out">Sign-out</a></p>
+            <% }else{ %>
+                <p><a href="/user/sign-in">Sign-in</a></p>
+                <p><a href="/user/sign-up">Sign-up</a></p>
+            <% } %>
+        </div>
+    </div>
 </header>

@@ -1,0 +1,34 @@
+header{
+    background-color: green;
+    height:auto;
+    #container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        #app-name{
+            margin-left: 10px;
+            font-size: 2.5vw;
+            color:#e6e6e6;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        #app-name:hover{
+            color: white;
+        }
+    }
+    #inner-container{
+        width:40vw;
+        display: flex;
+        justify-content: space-evenly;
+        a{
+            color:#e6e6e6;
+            font-size: 1.5vw;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+    }
+}

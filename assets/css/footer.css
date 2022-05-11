@@ -1,0 +1,11 @@
+footer {
+  background-color: darkgreen; }
+  footer #container {
+    display: flex;
+    justify-content: space-around; }
+    footer #container p {
+      color: #e6e6e6;
+      font-size: 1.5vw;
+      font-weight: bold; }
+    footer #container p:hover {
+      color: white; }

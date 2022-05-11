@@ -1,0 +1,15 @@
+footer{
+    background-color: darkgreen;
+    #container{
+        display: flex;
+        justify-content: space-around;
+        p{
+            color:#e6e6e6;
+            font-size: 1.5vw;
+            font-weight: bold;
+        }
+        p:hover{
+            color: white;
+        }
+    }
+}

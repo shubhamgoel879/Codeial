@@ -16,6 +16,17 @@ which is storing session so session as argument.*/
 const MongoStore=require('connect-mongo');
 
 
+const sassMiddleware=require('node-sass-middleware');
+
+
+app.use(sassMiddleware({
+    src:'./assets/scss',
+    dest:'./assets/css',
+    debug:true,
+    outputStyle:'extended',
+    prefix:'/css'
+}));
+
 
 
 app.use(express.urlencoded()); // Used to handle post requests, it puts form data in req.body
