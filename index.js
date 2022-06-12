@@ -80,6 +80,6 @@ app.listen(port, function(err){
         return;
     }
     else{
-        console.log(`Server running on port:${port}`);
+        console.log(`http://localhost:${port}/`);
     }
 });
