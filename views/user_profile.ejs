@@ -4,6 +4,15 @@
 </h1>
 <!-- Here user is accessible because we have used app.use(passport.setAuthenticatedUser) in index.js  which is setting 
 the user's data (if user is authenticated) in res.locals.user -->
-<p><%=user.name%></p>
-<p><%=user.email%></p>
+
+<% if(user.id==profile_user.id){ %>
+    <form action="/user/update/<%= user.id %>" method="POST">
+        <input type="text" name="name" placeholder="Your name" value="<%= profile_user.name %>" required>
+        <input type="email" name="email" placeholder="Your email" value="<%= profile_user.email %>" required>
+        <input type="submit" value="Update">
+    </form>
+<% }else{ %>
+    <p><%=profile_user.name%></p>
+    <p><%=profile_user.email%></p>
+<% } %>
     

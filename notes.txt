@@ -1,0 +1,1 @@
+.find() function model finds all possible documents(with keys and values) in an array 

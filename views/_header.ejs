@@ -7,7 +7,7 @@
         <a href="/" id="app-name">Codeial</a>
         <div id="inner-container">
             <% if(locals.user){ %>       <!--Accessing a property not present in object will show no error, here user is property of locals-->
-                <p><a href="/user/profile"><%= locals.user.name%></a></p>
+                <p><a href="/user/profile/<%= user.id %>"><%= locals.user.name%></a></p>
                 <p><a href="/user/sign-out">Sign-out</a></p>
             <% }else{ %>
                 <p><a href="/user/sign-in">Sign-in</a></p>

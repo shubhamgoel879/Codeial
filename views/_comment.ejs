@@ -1,0 +1,10 @@
+<li>
+    <p>
+        <span>☺ <%= comment.user.name%></span>
+        <br>
+        <span>🎙 <%= comment.content %></span>
+        <% if(locals.user && locals.user.id==comment.user.id){ %>
+            <span><a href="comment/destroy/<%=comment.id%>">X</a></span>
+        <% } %>
+    </p>
+</li>
