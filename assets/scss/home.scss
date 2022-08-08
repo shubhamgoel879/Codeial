@@ -1,0 +1,12 @@
+#home-container{
+    display: flex;
+    justify-content: space-between;
+    #feed-posts{
+        padding: 10px;
+    }
+    #all-users-container{
+        padding: 10px;
+        border-left: 2px solid lightgrey;
+        width: 20%;
+    }
+}

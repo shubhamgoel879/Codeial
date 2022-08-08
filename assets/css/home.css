@@ -1,0 +1,9 @@
+#home-container {
+  display: flex;
+  justify-content: space-between; }
+  #home-container #feed-posts {
+    padding: 10px; }
+  #home-container #all-users-container {
+    padding: 10px;
+    border-left: 2px solid lightgrey;
+    width: 20%; }

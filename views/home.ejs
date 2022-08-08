@@ -1,30 +1,33 @@
-<h1>Home</h1>
+<link rel="stylesheet" href="/css/home.css">
 
+<div id="home-container">
 
-<section id="all-users-container">
-    <ul>
-        <% for(let u of all_users){ %>
-            <li>
-                <a href="/user/profile/<%= u.id%>"><%= u.name %></a>
-            </li>
+    <section id="feed-posts">
+        <h1>Posts</h1>
+        <% if(locals.user){ %>
+            <form action="/post/create" id="new-post-form" method="POST">
+                <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
+                <input type="submit" value="Post">
+            </form>
         <% } %>
-    </ul>
-</section>
+        <div id="posts-list-container" >
+            <ul>
+                <% for(post of posts){%>
+                    <%- include('_post') -%>
+                <% } %>
+            </ul>
+        </div>
+    </section>
 
-
-<section id="feed-posts">
-    <h4>Posts</h4>
-    <% if(locals.user){ %>
-        <form action="/post/create" id="new-post-form" method="POST">
-            <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
-            <input type="submit" value="Post">
-        </form>
-    <% } %>
-    <div id="posts-list-container" >
+    <section id="all-users-container">
+        <h1>Peoples you may know.</h1>
         <ul>
-            <% for(post of posts){%>
-                <%- include('_post') -%>
+            <% for(let u of all_users){ %>
+                <li>
+                    <a href="/user/profile/<%= u.id%>"><%= u.name %></a>
+                </li>
             <% } %>
         </ul>
-    </div>
-</section>
+    </section>
+
+</div>
