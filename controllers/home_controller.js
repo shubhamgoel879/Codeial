@@ -6,21 +6,25 @@ module.exports.home = async function (req, res) {
     each object having content as string and user as objectId 
     so we have to populate our user using ref collection='User', now user is now having name, email etc. */
 
-    let posts = await Post.find({})
-        .populate('user')
-        .populate({
-            path: 'comments',
-            populate: {
-                path: 'user'
-            }
+    try {
+        let posts = await Post.find({})
+            .populate('user')
+            .populate({
+                path: 'comments',
+                populate: {
+                    path: 'user'
+                }
+            });
+
+        let users = await User.find({});
+        
+        return res.render('home', {
+            title: 'Home',
+            posts: posts,
+            all_users: users
         });
-
-
-    let users = await User.find({});
-
-    return res.render('home', {
-        title: 'Home',
-        posts: posts,
-        all_users: users
-    });
+    } catch (err) {
+        console.log('Error',err);
+        return;
+    }
 };
