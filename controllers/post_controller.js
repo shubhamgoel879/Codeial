@@ -6,25 +6,25 @@ module.exports.create = function (req, res) {
         user: req.user._id
     }, function (err, post) {
         if (err) {
-            console.log('Error while creating the post');
+            req.flash('error','Error while creating the post');
             return;
         }
+        req.flash('success', '😎 Post Published!');
         return res.redirect('back');
     });
 }
 
 module.exports.destroy = async function (req, res) {
     try{
-        
         let post = await Post.findById(req.params.id);
         if (post.user == req.user.id) {
             await post.remove();
             await Comment.deleteMany({ post: req.params.id });
-        } 
+        }
+        req.flash('success','Post Deleted!'); 
         return res.redirect('back');
-
     }catch(err){
-        console.log('Error',err);
+        req.flash('Error',err);
         return;
     }
 }

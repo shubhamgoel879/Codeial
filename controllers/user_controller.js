@@ -69,12 +69,14 @@ module.exports.create=function(req,res){
 
 // Used for signing in a user
 module.exports.createSession=function(req,res){
+    req.flash('success', '😀 Welcome '+req.user.name+'!');
     return res.redirect('/');
 }
 
 
 
 module.exports.destroySession=function(req,res){
+    req.flash('success', '😄 Logged out Successfully');
     req.logout();   // logout is built in function provided by PassportJS to req
     return res.redirect('/');
 }
