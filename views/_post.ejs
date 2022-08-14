@@ -1,10 +1,10 @@
-<li>
+<li id="post-<%= post._id %>">
     <p>
-        <span>😀 <%= post.user.name%></span>
+        <span>👤 <%= post.user.name%></span>
         <br>
         <span>❥ <%= post.content %></span>
         <% if(locals.user && locals.user.id==post.user.id){ %>
-            <span><a href="post/destroy/<%=post.id%>">X</a></span>
+            <span><a class="delete-post-button" href="post/destroy/<%=post.id%>">X</a></span>
         <% } %>
     </p>
     <div class="post-comments">
