@@ -3,7 +3,7 @@
     let createPost = function () {
         let newPostForm = $('#new-post-form');
         newPostForm.submit(function (e) {
-            e.preventDefault();
+            e.preventDefault();   // It means we are stopping what it does by default.
             $.ajax({
                 type: 'post',
                 url: '/post/create',
@@ -11,6 +11,7 @@
                 success: function (data) {
                     let newPost=newPostDom(data.data.post);
                     $('#posts-list-container').prepend(newPost);
+                    deletePost($(' .delete-post-button',newPost));
                 },
                 error: function (error) {
                     console.log(error, responseText);
@@ -36,5 +37,23 @@
                     </div>
                 </li>`);
     }
+
+    // method to delete a post from DOM
+    let deletePost =function(deleteLink){
+        $(deleteLink).click(function(e){
+           e.preventDefault();
+           $.ajax({
+            type:'get',
+            url:$(deleteLink).prop('href'),
+            success:function(data){
+                $(`#post-${data.data.post_id}`).remove();
+            },
+            error:function(error){
+                console.log(error.responseText);
+            }
+           }); 
+        })
+    }
+
     createPost();
 }
