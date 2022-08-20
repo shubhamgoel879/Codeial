@@ -11,6 +11,13 @@
                 success: function (data) {
                     let newPost=newPostDom(data.data.post);
                     $('#posts-list-container').prepend(newPost);
+                    new Noty({
+                        theme:'relax',
+                        text:'😎 Post Published!',
+                        type:'success',
+                        layout:'bottomRight',
+                        timeout:2000
+                    }).show();
                     deletePost($(' .delete-post-button',newPost));
                 },
                 error: function (error) {
@@ -47,6 +54,13 @@
             url:$(deleteLink).prop('href'),
             success:function(data){
                 $(`#post-${data.data.post_id}`).remove();
+                    new Noty({
+                        theme:'relax',
+                        text:'Post Deleted!',
+                        type:'error',
+                        layout:'bottomRight',
+                        timeout:2000
+                    }).show();
             },
             error:function(error){
                 console.log(error.responseText);
