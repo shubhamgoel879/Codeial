@@ -1,14 +1,15 @@
 <link rel="stylesheet" href="/css/user_profile.css">
-<h1>
-    User Profile
-</h1>
+
+<img src="<%= user.avatar%>" alt="<%= user.name%>" width="100" height="100">
+
 <!-- Here user is accessible because we have used app.use(passport.setAuthenticatedUser) in index.js  which is setting 
 the user's data (if user is authenticated) in res.locals.user -->
 
 <% if(user.id==profile_user.id){ %>
-    <form action="/user/update/<%= user.id %>" method="POST">
+    <form action="/user/update/<%= user.id %>" enctype="multipart/form-data" method="POST">    <!-- multipart/formdata means data can image also -->
         <input type="text" name="name" placeholder="Your name" value="<%= profile_user.name %>" required>
         <input type="email" name="email" placeholder="Your email" value="<%= profile_user.email %>" required>
+        <input type="file" name="avatar" placeholder="Profile Picture">
         <input type="submit" value="Update">
     </form>
 <% }else{ %>

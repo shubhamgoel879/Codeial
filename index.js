@@ -33,6 +33,7 @@ app.use(sassMiddleware({
 app.use(express.urlencoded()); // Used to handle post requests, it puts form data in req.body
 app.use(cookie_parser());
 app.use(express.static('./assets'));
+app.use('/uploads',express.static(__dirname+'/uploads'));
 
 //layout.ejs file will be accessed here.
 app.use(expressEjsLayouts);
