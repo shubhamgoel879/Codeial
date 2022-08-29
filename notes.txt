@@ -1,1 +1,5 @@
 .find() function model finds all possible documents(with keys and values) in an array 
+
+
+In google OAuth when user clicks on their google account then after successful authentication he is routed to  
+callbackURL:'http://localhost:8000/user/auth/google/callback'  and then logged in.

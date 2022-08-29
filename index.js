@@ -9,7 +9,7 @@ const cookie_parser= require('cookie-parser');
 const session=require('express-session');
 const passport = require('passport');
 const passportLocal=require('./config/passport-local-strategy');
-
+const passportGoogle=require('./config/passport-google-oauth2-strategy');
 /*On restarting our server, previous session cookies will get removed, so all our users will get 
 signed out automatically, so we need to store our session cookies in database that's why we use connect-mongo
 which is storing session so session as argument.*/

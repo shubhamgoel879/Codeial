@@ -1,5 +1,10 @@
 footer {
-  background-color: darkgreen; }
+  background-color: darkgreen;
+  box-shadow: 4px 5px lightgrey;
+  border-radius: 8px;
+  max-width: 98%;
+  margin: auto;
+  margin-bottom: 8px; }
   footer #container {
     display: flex;
     justify-content: space-around; }

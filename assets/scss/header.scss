@@ -1,6 +1,11 @@
 header{
     background-color: green;
     height:auto;
+    box-shadow: 4px 5px lightgrey;
+    border-radius: 8px;
+    width: 98%;
+    margin: auto;
+    margin-top: 8px;
     #container{
         display: flex;
         justify-content: space-between;
