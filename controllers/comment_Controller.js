@@ -1,15 +1,15 @@
 const { response } = require('express');
 const Comment=require('../models/comment');
 const Post=require('../models/post');
-
-module.exports.create=function(req,res){
-    Post.findById(req.body.postId,function(err,post){
+const commentsMailer=require('../mailers/comments_mailer');
+module.exports.create= async function(req,res){
+    Post.findById(req.body.postId, async function(err,post){
         if(post){
             Comment.create({
                 content:req.body.content,
                 user:req.user._id,
                 post:req.body.postId
-            },function(err,comment){
+            }, async function(err,comment){
                 if(err){
                     req.flash('error',err);
                     return;
@@ -17,6 +17,8 @@ module.exports.create=function(req,res){
                 post.comments.push(comment);  // it will be pushed in locals so we need to save it in database.
                 post.save();
                 req.flash('success', '😎 Comment Published!');
+                comment=await comment.populate('user','email');
+                commentsMailer.newComment(comment);
                 res.redirect('/');
             });
         }
