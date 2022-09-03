@@ -17,7 +17,7 @@ module.exports.create= async function(req,res){
                 post.comments.push(comment);  // it will be pushed in locals so we need to save it in database.
                 post.save();
                 req.flash('success', '😎 Comment Published!');
-                comment=await comment.populate('user','email');
+                comment=await comment.populate('user',' name email');
                 commentsMailer.newComment(comment);
                 res.redirect('/');
             });
